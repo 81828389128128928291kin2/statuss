@@ -1,0 +1,12 @@
+{
+  "name": "executor-status",
+  "version": "1.0.0",
+  "private": true,
+  "description": "External executor status tracker",
+  "main": "index.html",
+  "scripts": {
+    "build": "echo 'No build required' && exit 0"
+  },
+  "author": "",
+  "license": "MIT"
+}
