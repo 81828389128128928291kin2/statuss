@@ -6,7 +6,621 @@
     <title>External</title>
     <link rel="icon" type="image/png" href="https://cdn.discordapp.com/attachments/1532523653017764002/1534050225218654319/image_2.png?ex=6a74b15a&is=6a735fda&hm=d985a3408067b4825ad41656249d685a09426978d263bd67b471510d66476c31&" />
     <style>
-        *{margin:0;padding:0;box-sizing:border-box}body{font-family:'Inter',sans-serif;background:#0a0a0f;color:#e4e4e7;min-height:100vh;padding:2rem}.container{max-width:1200px;margin:0 auto}.header{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;padding-bottom:1.5rem;border-bottom:1px solid #1e1e2e;margin-bottom:1rem}.header .logo-section{display:flex;align-items:center;gap:1rem}.header .logo-section .logo-img{height:45px;width:auto;border-radius:8px;object-fit:contain}.header .logo-section .logo-text{font-size:1.5rem;font-weight:700;background:linear-gradient(135deg,#a855f7,#3b82f6);-webkit-background-clip:text;-webkit-text-fill-color:transparent}.header .status-badge{display:flex;align-items:center;gap:.75rem;font-size:.85rem;color:#71717a}.header .status-badge .dot{width:10px;height:10px;border-radius:50%;background:#4ade80;box-shadow:0 0 12px #4ade8066}.header .status-badge .dot.offline{background:#f87171;box-shadow:0 0 12px #f8717166}.discord-invite{background:#1a1a2a;border:1px solid #2a2a3a;border-radius:10px;padding:.6rem 1.2rem;margin-bottom:1.5rem;display:flex;align-items:center;justify-content:flex-end;flex-wrap:wrap;gap:1rem}.discord-invite .join-btn{background:#5865f2;color:#fff;border:none;padding:.4rem 1.2rem;border-radius:100px;font-size:.8rem;font-weight:600;cursor:pointer;transition:.15s;text-decoration:none;display:inline-flex;align-items:center;gap:.4rem}.discord-invite .join-btn:hover{background:#4752c4;transform:scale(1.02)}.support-banner{background:#1a1a2a;border:1px solid #2a2a3a;border-radius:10px;padding:.75rem 1.5rem;margin-bottom:1.5rem;display:flex;align-items:center;gap:.75rem;font-size:.9rem;color:#a1a1aa}.support-banner strong{color:#f4f4f5}.support-banner .highlight{color:#a855f7;font-weight:600}.controls{display:flex;flex-wrap:wrap;gap:.75rem;align-items:center;margin-bottom:2rem}.controls .search-box{flex:1;min-width:200px;background:#12121e;border:1px solid #1a1a2a;border-radius:8px;padding:.6rem 1rem;color:#e4e4e7;font-size:.9rem;outline:none;transition:.15s}.controls .search-box:focus{border-color:#a855f7;box-shadow:0 0 0 3px rgba(168,85,247,.1)}.controls .search-box::placeholder{color:#4a4a5a}.controls .filter-group{display:flex;flex-wrap:wrap;gap:.3rem}.controls .filter-group button{background:#12121e;border:1px solid #1a1a2a;color:#a1a1aa;padding:.35rem 1rem;border-radius:100px;font-size:.78rem;font-weight:500;cursor:pointer;transition:.15s}.controls .filter-group button:hover{border-color:#3a3a5a;color:#f4f4f5}.controls .filter-group button.active{background:#2a2a4a;border-color:#a855f7;color:#f4f4f5}.controls .refresh-btn{background:#12121e;border:1px solid #1a1a2a;color:#a1a1aa;padding:.35rem 1.25rem;border-radius:100px;font-size:.78rem;cursor:pointer;transition:.15s;white-space:nowrap}.controls .refresh-btn:hover{border-color:#4a4a6a;color:#f4f4f5}.controls .status-fetch{font-size:.7rem;color:#4a4a5a}.executor-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:1.5rem}.executor-card{background:#12121e;border-radius:16px;padding:1.5rem;border:1px solid #1a1a2a;transition:all .2s ease;display:flex;flex-direction:column;gap:.75rem}.executor-card:hover{border-color:#2a2a4a;transform:translateY(-4px);box-shadow:0 8px 30px -10px rgba(0,0,0,.6)}.executor-card .card-header{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:.5rem}.executor-card .card-header .logo-section{display:flex;align-items:center;gap:.75rem}.executor-card .card-header .logo{width:40px;height:40px;border-radius:8px;background:#1a1a2a;display:flex;align-items:center;justify-content:center;font-size:1.2rem;color:#71717a;border:1px solid #2a2a3a;overflow:hidden;flex-shrink:0}.executor-card .card-header .logo img{width:100%;height:100%;object-fit:cover}.executor-card .card-header .name-section{display:flex;flex-direction:column;gap:.15rem}.executor-card .card-header .name{font-size:1.3rem;font-weight:700;color:#f4f4f5}.executor-card .card-header .version{font-size:.75rem;color:#71717a}.executor-card .card-header .status-badge{font-size:.65rem;font-weight:600;padding:.2rem .7rem;border-radius:100px;text-transform:uppercase;letter-spacing:.03em;white-space:nowrap;margin-left:auto;align-self:center;display:inline-flex;align-items:center;gap:.3rem}.status-badge.up{background:#064e3b;color:#4ade80}.status-badge.down{background:#4c1d1d;color:#f87171}.status-badge .check-icon{width:14px;height:14px;display:inline-block;background:currentColor;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E") no-repeat center;mask-size:contain;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E") no-repeat center;-webkit-mask-size:contain}.status-badge .x-icon{width:14px;height:14px;display:inline-block;background:currentColor;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cline x1='18' y1='6' x2='6' y2='18'%3E%3C/line%3E%3Cline x1='6' y1='6' x2='18' y2='18'%3E%3C/line%3E%3C/svg%3E") no-repeat center;mask-size:contain;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cline x1='18' y1='6' x2='6' y2='18'%3E%3C/line%3E%3Cline x1='6' y1='6' x2='18' y2='18'%3E%3C/line%3E%3C/svg%3E") no-repeat center;-webkit-mask-size:contain}.executor-card .developer{font-size:.8rem;color:#71717a}.executor-card .developer strong{color:#a1a1aa;font-weight:500}.executor-card .description{font-size:.85rem;color:#a1a1aa;line-height:1.5;margin:.25rem 0;flex-grow:1}.executor-card .card-footer{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.5rem;padding-top:.75rem;border-top:1px solid #1a1a2a;margin-top:auto}.executor-card .card-footer .platform{display:flex;align-items:center;gap:.5rem;font-size:.75rem;color:#71717a}.executor-card .card-footer .platform .platform-icon{width:16px;height:16px;display:inline-block;vertical-align:middle;filter:brightness(0) invert(1)}.executor-card .card-footer .downloads{font-size:.75rem;color:#71717a}.executor-card .card-footer .price{font-size:.9rem;font-weight:600;padding:.15rem .6rem;border-radius:100px;display:inline-block}.executor-card .card-footer .price.free{color:#7c3aed;background:rgba(124,58,237,.15)}.executor-card .card-footer .price.keysystem{color:#7c3aed;background:rgba(124,58,237,.15)}.executor-card .card-footer .price.paid{color:#a855f7;background:rgba(168,85,247,.15)}.tracking-badge{display:inline-flex;align-items:center;gap:.3rem;font-size:.6rem;font-weight:600;text-transform:uppercase;letter-spacing:.04em;color:#4a4a5a;background:#1a1a2a;padding:.15rem .6rem;border-radius:100px;border:1px solid #2a2a3a}.tracking-badge .live-dot{width:6px;height:6px;border-radius:50%;background:#4ade80;animation:pulse 1.5s infinite}.action-links{display:flex;gap:.3rem}.action-links a{color:#8b8bff;text-decoration:none;font-size:.7rem;padding:.15rem .4rem;border-radius:100px;background:0 0;border:1px solid #2a2a3a;transition:.15s;display:inline-flex;align-items:center;gap:.2rem}.action-links a:hover{border-color:#4a4a6a;color:#f4f4f5}.action-links a.discord{border-color:#5865f2;color:#8b8bff}.action-links a.discord:hover{background:#5865f2;color:#fff;border-color:#5865f2}.action-links a .discord-img{width:16px;height:16px;display:inline-block;vertical-align:middle;filter:brightness(0) invert(1)}.loading-state{display:flex;justify-content:center;align-items:center;gap:.75rem;padding:4rem 0;color:#71717a;grid-column:1/-1}.spinner{width:28px;height:28px;border:3px solid #1a1a2a;border-top-color:#a855f7;border-radius:50%;animation:spin .8s linear infinite}@keyframes spin{to{transform:rotate(360deg)}}@keyframes pulse{0%{opacity:1}50%{opacity:.3}100%{opacity:1}}@media(max-width:768px){body{padding:1rem}.executor-grid{grid-template-columns:1fr}.controls{flex-direction:column;align-items:stretch}.filter-group{justify-content:center}.refresh-btn{align-self:center}.support-banner{font-size:.8rem;padding:.6rem 1rem;flex-wrap:wrap}.discord-invite{justify-content:center}}@media(max-width:480px){.header .logo-section .logo-text{font-size:1.2rem}.header .logo-section .logo-img{height:30px}.executor-card .card-header{flex-direction:column;align-items:flex-start}.executor-card .card-header .status-badge{margin-left:0;align-self:flex-start}.executor-card .card-footer{flex-direction:column;align-items:stretch;gap:.5rem}}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #000000;
+            color: #e4e4e7;
+            min-height: 100vh;
+            padding: 2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid #1e1e2e;
+            margin-bottom: 1rem;
+        }
+
+        .header .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .header .logo-section .logo-img {
+            height: 45px;
+            width: auto;
+            border-radius: 8px;
+            object-fit: contain;
+        }
+
+        .header .logo-section .logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #a855f7, #3b82f6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .header .status-badge {
+            display: flex;
+            align-items: center;
+            gap: .75rem;
+            font-size: .85rem;
+            color: #71717a;
+        }
+
+        .header .status-badge .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #4ade80;
+            box-shadow: 0 0 12px #4ade8066;
+        }
+
+        .header .status-badge .dot.offline {
+            background: #f87171;
+            box-shadow: 0 0 12px #f8717166;
+        }
+
+        .discord-invite {
+            background: #1a1a2a;
+            border: 1px solid #2a2a3a;
+            border-radius: 10px;
+            padding: .6rem 1.2rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .discord-invite .join-btn {
+            background: #5865f2;
+            color: #fff;
+            border: none;
+            padding: .4rem 1.2rem;
+            border-radius: 100px;
+            font-size: .8rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: .15s;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: .4rem;
+        }
+
+        .discord-invite .join-btn:hover {
+            background: #4752c4;
+            transform: scale(1.02);
+        }
+
+        .support-banner {
+            background: #1a1a2a;
+            border: 1px solid #2a2a3a;
+            border-radius: 10px;
+            padding: .75rem 1.5rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: .75rem;
+            font-size: .9rem;
+            color: #a1a1aa;
+        }
+
+        .support-banner strong {
+            color: #f4f4f5;
+        }
+
+        .support-banner .highlight {
+            color: #a855f7;
+            font-weight: 600;
+        }
+
+        .controls {
+            display: flex;
+            flex-wrap: wrap;
+            gap: .75rem;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .controls .search-box {
+            flex: 1;
+            min-width: 200px;
+            background: #12121e;
+            border: 1px solid #1a1a2a;
+            border-radius: 8px;
+            padding: .6rem 1rem;
+            color: #e4e4e7;
+            font-size: .9rem;
+            outline: none;
+            transition: .15s;
+        }
+
+        .controls .search-box:focus {
+            border-color: #a855f7;
+            box-shadow: 0 0 0 3px rgba(168, 85, 247, .1);
+        }
+
+        .controls .search-box::placeholder {
+            color: #4a4a5a;
+        }
+
+        .controls .filter-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: .3rem;
+        }
+
+        .controls .filter-group button {
+            background: #12121e;
+            border: 1px solid #1a1a2a;
+            color: #a1a1aa;
+            padding: .35rem 1rem;
+            border-radius: 100px;
+            font-size: .78rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all .2s ease;
+        }
+
+        .controls .filter-group button:hover {
+            border-color: #3a3a5a;
+            color: #f4f4f5;
+            transform: translateY(-1px);
+        }
+
+        .controls .filter-group button.active {
+            background: #2a2a4a;
+            border-color: #a855f7;
+            color: #f4f4f5;
+            box-shadow: 0 0 20px rgba(168, 85, 247, .15);
+        }
+
+        .controls .refresh-btn {
+            background: #12121e;
+            border: 1px solid #1a1a2a;
+            color: #a1a1aa;
+            padding: .35rem 1.25rem;
+            border-radius: 100px;
+            font-size: .78rem;
+            cursor: pointer;
+            transition: all .2s ease;
+            white-space: nowrap;
+        }
+
+        .controls .refresh-btn:hover {
+            border-color: #4a4a6a;
+            color: #f4f4f5;
+            transform: translateY(-1px);
+        }
+
+        .controls .refresh-btn:active {
+            transform: scale(.95);
+        }
+
+        .controls .status-fetch {
+            font-size: .7rem;
+            color: #4a4a5a;
+        }
+
+        .executor-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .executor-card {
+            background: #12121e;
+            border-radius: 16px;
+            padding: 1.5rem;
+            border: 1px solid #1a1a2a;
+            transition: all .3s cubic-bezier(.4, 0, .2, 1);
+            display: flex;
+            flex-direction: column;
+            gap: .75rem;
+        }
+
+        .executor-card:hover {
+            border-color: #2a2a4a;
+            transform: translateY(-4px);
+            box-shadow: 0 8px 30px -10px rgba(0, 0, 0, .6);
+        }
+
+        .executor-card .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: .5rem;
+        }
+
+        .executor-card .card-header .logo-section {
+            display: flex;
+            align-items: center;
+            gap: .75rem;
+        }
+
+        .executor-card .card-header .logo {
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            background: #1a1a2a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: #71717a;
+            border: 1px solid #2a2a3a;
+            overflow: hidden;
+            flex-shrink: 0;
+            transition: all .3s ease;
+        }
+
+        .executor-card:hover .card-header .logo {
+            border-color: #a855f7;
+        }
+
+        .executor-card .card-header .logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .executor-card .card-header .name-section {
+            display: flex;
+            flex-direction: column;
+            gap: .15rem;
+        }
+
+        .executor-card .card-header .name {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #f4f4f5;
+        }
+
+        .executor-card .card-header .version {
+            font-size: .75rem;
+            color: #71717a;
+        }
+
+        .executor-card .card-header .status-badge {
+            font-size: .65rem;
+            font-weight: 600;
+            padding: .2rem .7rem;
+            border-radius: 100px;
+            text-transform: uppercase;
+            letter-spacing: .03em;
+            white-space: nowrap;
+            margin-left: auto;
+            align-self: center;
+            display: inline-flex;
+            align-items: center;
+            gap: .3rem;
+            transition: all .3s ease;
+        }
+
+        .status-badge.up {
+            background: #064e3b;
+            color: #4ade80;
+            box-shadow: 0 0 20px rgba(74, 222, 128, .1);
+        }
+
+        .status-badge.down {
+            background: #4c1d1d;
+            color: #f87171;
+            box-shadow: 0 0 20px rgba(248, 113, 113, .1);
+        }
+
+        .status-badge .check-icon {
+            width: 14px;
+            height: 14px;
+            display: inline-block;
+            background: currentColor;
+            mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E") no-repeat center;
+            mask-size: contain;
+            -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E") no-repeat center;
+            -webkit-mask-size: contain;
+        }
+
+        .status-badge .x-icon {
+            width: 14px;
+            height: 14px;
+            display: inline-block;
+            background: currentColor;
+            mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cline x1='18' y1='6' x2='6' y2='18'%3E%3C/line%3E%3Cline x1='6' y1='6' x2='18' y2='18'%3E%3C/line%3E%3C/svg%3E") no-repeat center;
+            mask-size: contain;
+            -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cline x1='18' y1='6' x2='6' y2='18'%3E%3C/line%3E%3Cline x1='6' y1='6' x2='18' y2='18'%3E%3C/line%3E%3C/svg%3E") no-repeat center;
+            -webkit-mask-size: contain;
+        }
+
+        .executor-card .developer {
+            font-size: .8rem;
+            color: #71717a;
+        }
+
+        .executor-card .developer strong {
+            color: #a1a1aa;
+            font-weight: 500;
+        }
+
+        .executor-card .description {
+            font-size: .85rem;
+            color: #a1a1aa;
+            line-height: 1.5;
+            margin: .25rem 0;
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+            gap: .5rem;
+        }
+
+        .executor-card .description .desc-check {
+            width: 16px;
+            height: 16px;
+            display: inline-block;
+            background: #4ade80;
+            mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E") no-repeat center;
+            mask-size: contain;
+            -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E") no-repeat center;
+            -webkit-mask-size: contain;
+            flex-shrink: 0;
+        }
+
+        .executor-card .description .desc-warn {
+            width: 16px;
+            height: 16px;
+            display: inline-block;
+            background: #fbbf24;
+            mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 2L1 21h22L12 2z'%3E%3C/path%3E%3Cline x1='12' y1='9' x2='12' y2='13'%3E%3C/line%3E%3Cline x1='12' y1='17' x2='12.01' y2='17'%3E%3C/line%3E%3C/svg%3E") no-repeat center;
+            mask-size: contain;
+            -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 2L1 21h22L12 2z'%3E%3C/path%3E%3Cline x1='12' y1='9' x2='12' y2='13'%3E%3C/line%3E%3Cline x1='12' y1='17' x2='12.01' y2='17'%3E%3C/line%3E%3C/svg%3E") no-repeat center;
+            -webkit-mask-size: contain;
+            flex-shrink: 0;
+        }
+
+        .executor-card .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: .5rem;
+            padding-top: .75rem;
+            border-top: 1px solid #1a1a2a;
+            margin-top: auto;
+        }
+
+        .executor-card .card-footer .platform {
+            display: flex;
+            align-items: center;
+            gap: .5rem;
+            font-size: .75rem;
+            color: #71717a;
+        }
+
+        .executor-card .card-footer .platform .platform-icon {
+            width: 16px;
+            height: 16px;
+            display: inline-block;
+            vertical-align: middle;
+            filter: brightness(0) invert(1);
+        }
+
+        .executor-card .card-footer .downloads {
+            font-size: .75rem;
+            color: #71717a;
+        }
+
+        .executor-card .card-footer .price {
+            font-size: .9rem;
+            font-weight: 600;
+            padding: .15rem .6rem;
+            border-radius: 100px;
+            display: inline-block;
+            transition: all .3s ease;
+        }
+
+        .executor-card .card-footer .price.free {
+            color: #7c3aed;
+            background: rgba(124, 58, 237, .15);
+        }
+
+        .executor-card .card-footer .price.keysystem {
+            color: #7c3aed;
+            background: rgba(124, 58, 237, .15);
+        }
+
+        .executor-card .card-footer .price.paid {
+            color: #a855f7;
+            background: rgba(168, 85, 247, .15);
+        }
+
+        .tracking-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: .3rem;
+            font-size: .6rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: .04em;
+            color: #4a4a5a;
+            background: #1a1a2a;
+            padding: .15rem .6rem;
+            border-radius: 100px;
+            border: 1px solid #2a2a3a;
+        }
+
+        .tracking-badge .live-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: #4ade80;
+            animation: pulse 1.5s infinite;
+        }
+
+        .action-links {
+            display: flex;
+            gap: .3rem;
+        }
+
+        .action-links a {
+            color: #8b8bff;
+            text-decoration: none;
+            font-size: .7rem;
+            padding: .15rem .4rem;
+            border-radius: 100px;
+            background: 0 0;
+            border: 1px solid #2a2a3a;
+            transition: all .2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: .2rem;
+        }
+
+        .action-links a:hover {
+            border-color: #4a4a6a;
+            color: #f4f4f5;
+            transform: translateY(-1px);
+        }
+
+        .action-links a.discord {
+            border-color: #5865f2;
+            color: #8b8bff;
+        }
+
+        .action-links a.discord:hover {
+            background: #5865f2;
+            color: #fff;
+            border-color: #5865f2;
+        }
+
+        .action-links a .discord-img {
+            width: 16px;
+            height: 16px;
+            display: inline-block;
+            vertical-align: middle;
+            filter: brightness(0) invert(1);
+        }
+
+        .loading-state {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: .75rem;
+            padding: 4rem 0;
+            color: #71717a;
+            grid-column: 1/-1;
+        }
+
+        .spinner {
+            width: 28px;
+            height: 28px;
+            border: 3px solid #1a1a2a;
+            border-top-color: #a855f7;
+            border-radius: 50%;
+            animation: spin .8s linear infinite;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes pulse {
+            0% {
+                opacity: 1;
+                transform: scale(1);
+            }
+            50% {
+                opacity: .3;
+                transform: scale(.8);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .flash {
+            animation: fade .5s ease;
+        }
+
+        @keyframes fade {
+            0% {
+                background: rgba(168, 85, 247, .15);
+            }
+            100% {
+                background: transparent;
+            }
+        }
+
+        @media(max-width:768px) {
+            body {
+                padding: 1rem;
+            }
+            .executor-grid {
+                grid-template-columns: 1fr;
+            }
+            .controls {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .filter-group {
+                justify-content: center;
+            }
+            .refresh-btn {
+                align-self: center;
+            }
+            .support-banner {
+                font-size: .8rem;
+                padding: .6rem 1rem;
+                flex-wrap: wrap;
+            }
+            .discord-invite {
+                justify-content: center;
+            }
+        }
+
+        @media(max-width:480px) {
+            .header .logo-section .logo-text {
+                font-size: 1.2rem;
+            }
+            .header .logo-section .logo-img {
+                height: 30px;
+            }
+            .executor-card .card-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .executor-card .card-header .status-badge {
+                margin-left: 0;
+                align-self: flex-start;
+            }
+            .executor-card .card-footer {
+                flex-direction: column;
+                align-items: stretch;
+                gap: .5rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -46,7 +660,10 @@
         </div>
 
         <div class="executor-grid" id="executorGrid">
-            <div class="loading-state"><div class="spinner"></div>Loading executors...</div>
+            <div class="loading-state">
+                <div class="spinner"></div>
+                Loading executors...
+            </div>
         </div>
     </div>
 
@@ -63,12 +680,12 @@
             let allExecutors = [];
             let currentFilter = 'all';
             let isFetching = false;
-            let lastDataHash = '';
-            let pollInterval = null;
+            let lastHash = '';
+            let pollTimer = null;
 
-            const KEEP_EXECUTORS = ["Potassium", "Volt", "Wave", "Real", "Madium", "Velocity", "Delta"];
+            const KEEP = ["Potassium", "Volt", "Wave", "Real", "Madium", "Velocity", "Delta"];
 
-            const LOGO_MAP = {
+            const LOGOS = {
                 "Volt": "https://cdn.weao.gg/slug/volt/logo.png",
                 "Potassium": "https://cdn.weao.gg/slug/potassium/logo.png",
                 "Wave": "https://cdn.weao.gg/slug/wave/logo.png",
@@ -78,21 +695,21 @@
                 "Delta": "https://cdn.weao.gg/slug/delta/logo.png"
             };
 
-            const DISCORD_LOGO = 'https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/discord.svg';
-            const WINDOWS_LOGO = 'https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/windows11.svg';
-            const ANDROID_LOGO = 'https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/android.svg';
+            const D_LOGO = 'https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/discord.svg';
+            const W_LOGO = 'https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/windows11.svg';
+            const A_LOGO = 'https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/android.svg';
 
-            const STATIC_DESCRIPTIONS = {
-                "Volt": "Volt is the most powerful script executor for Roblox currently on the market.",
-                "Potassium": "A powerful script executor aimed to give you the best scripting experience.",
-                "Wave": "Wave is a robust and efficient Roblox exploit, offering a seamless scripting experience...",
-                "Real": "Real works across the games you actually play. New releases. Old favorites. Popular or obscure...",
-                "Madium": "A lightweight and fast executor for everyday use.",
-                "Velocity": "Velocity focuses on stability and speed for advanced scripters.",
-                "Delta": "The most popular executor for Android users."
+            const DESCS = {
+                "Potassium": "100% Fully Supported - Works perfectly with that script",
+                "Volt": "100% Fully Supported - Works perfectly with that script",
+                "Wave": "100% Fully Supported - Works perfectly with that script",
+                "Real": "100% Fully Supported - Works perfectly with that script",
+                "Madium": "100% Fully Supported - Works perfectly with that script",
+                "Velocity": "Not Fully Supported - Some features won't work with this executor",
+                "Delta": "100% Fully Supported - Works perfectly with that script"
             };
 
-            const STATIC_DEVELOPERS = {
+            const DEVS = {
                 "Volt": "R Cell",
                 "Potassium": "R permanently",
                 "Wave": "Team Wave",
@@ -102,7 +719,7 @@
                 "Delta": "lxnny, mlemix"
             };
 
-            const STATIC_DOWNLOADS = {
+            const DLS = {
                 "Volt": "42.1K",
                 "Potassium": "32.0K",
                 "Wave": "28.6K",
@@ -112,7 +729,7 @@
                 "Delta": "15.4K"
             };
 
-            const PURCHASE_LINKS = {
+            const BUY = {
                 "Volt": "https://rcheatz.com/product?id=volt",
                 "Potassium": "https://bloxproducts.com/#Potassium",
                 "Wave": "https://rcheatz.com/product?id=wave",
@@ -143,6 +760,7 @@
                 }
 
                 grid.innerHTML = '';
+
                 if (filtered.length === 0) {
                     grid.innerHTML = `<div style="grid-column:1/-1;text-align:center;color:#71717a;padding:3rem;">No executors match your criteria.</div>`;
                     return;
@@ -153,39 +771,42 @@
                     card.className = 'executor-card';
 
                     const isUp = e.updateStatus === true;
-                    const statusClass = isUp ? 'up' : 'down';
-                    const statusIcon = isUp ? '<span class="check-icon"></span>' : '<span class="x-icon"></span>';
-                    const statusLabel = isUp ? 'Up' : 'Down';
+                    const sClass = isUp ? 'up' : 'down';
+                    const sIcon = isUp ? '<span class="check-icon"></span>' : '<span class="x-icon"></span>';
+                    const sLabel = isUp ? 'Up' : 'Down';
 
-                    let priceClass = '';
-                    let priceDisplay = e.cost || '—';
+                    let pClass = '';
+                    let pDisplay = e.cost || '—';
 
                     if (e.free === true && e.keysystem === true) {
-                        priceClass = 'free';
-                        priceDisplay = 'Free (Key)';
+                        pClass = 'free';
+                        pDisplay = 'Free (Key)';
                     } else if (e.free === true) {
-                        priceClass = 'free';
-                        priceDisplay = 'Free';
+                        pClass = 'free';
+                        pDisplay = 'Free';
                     } else if (e.keysystem === true) {
-                        priceClass = 'keysystem';
-                        priceDisplay = 'Key ' + e.cost;
+                        pClass = 'keysystem';
+                        pDisplay = 'Key ' + e.cost;
                     } else {
-                        priceClass = 'paid';
+                        pClass = 'paid';
                     }
 
-                    const logoUrl = LOGO_MAP[e.title] || null;
+                    const logoUrl = LOGOS[e.title] || null;
                     const isWindows = e.platform && e.platform.toLowerCase() === 'windows';
                     const isAndroid = e.platform && e.platform.toLowerCase() === 'android';
 
-                    let platformIcon = '🖥️';
-                    if (isWindows) platformIcon = `<img src="${WINDOWS_LOGO}" alt="Windows" class="platform-icon" />`;
-                    else if (isAndroid) platformIcon = `<img src="${ANDROID_LOGO}" alt="Android" class="platform-icon" />`;
+                    let pIcon = '🖥️';
+                    if (isWindows) pIcon = `<img src="${W_LOGO}" alt="Windows" class="platform-icon" />`;
+                    else if (isAndroid) pIcon = `<img src="${A_LOGO}" alt="Android" class="platform-icon" />`;
 
                     let links = '';
                     if (e.websitelink) links += `<a href="${e.websitelink}" target="_blank">🌐</a>`;
-                    if (e.discordlink) links += `<a href="${e.discordlink}" target="_blank" class="discord"><img src="${DISCORD_LOGO}" alt="Discord" class="discord-img" /></a>`;
-                    const buyLink = PURCHASE_LINKS[e.title];
+                    if (e.discordlink) links += `<a href="${e.discordlink}" target="_blank" class="discord"><img src="${D_LOGO}" alt="Discord" class="discord-img" /></a>`;
+                    const buyLink = BUY[e.title];
                     if (buyLink && e.free === false) links += `<a href="${buyLink}" target="_blank">🛒</a>`;
+
+                    const isSupported = e.title !== "Velocity";
+                    const iconClass = isSupported ? 'desc-check' : 'desc-warn';
 
                     card.innerHTML = `
                         <div class="card-header">
@@ -193,14 +814,14 @@
                                 <div class="logo">${logoUrl ? `<img src="${logoUrl}" alt="${e.title} logo" onerror="this.style.display='none';this.parentElement.textContent=''" />` : ''}</div>
                                 <div class="name-section"><span class="name">${e.title}</span><span class="version">${e.version || ''}</span></div>
                             </div>
-                            <span class="status-badge ${statusClass}">${statusIcon} ${statusLabel}</span>
+                            <span class="status-badge ${sClass}">${sIcon} ${sLabel}</span>
                         </div>
-                        <div class="developer"><strong>Developer:</strong> ${STATIC_DEVELOPERS[e.title] || 'Unknown'}</div>
-                        <div class="description">${STATIC_DESCRIPTIONS[e.title] || 'No description available.'}</div>
+                        <div class="developer"><strong>Developer:</strong> ${DEVS[e.title] || 'Unknown'}</div>
+                        <div class="description"><span class="${iconClass}"></span> ${DESCS[e.title] || 'No description available.'}</div>
                         <div class="card-footer">
-                            <div class="platform">${platformIcon} ${e.platform || 'Windows'}</div>
-                            <div class="downloads">⬇ ${STATIC_DOWNLOADS[e.title] || '0'} downloads</div>
-                            <div class="price ${priceClass}">${priceDisplay}</div>
+                            <div class="platform">${pIcon} ${e.platform || 'Windows'}</div>
+                            <div class="downloads">⬇ ${DLS[e.title] || '0'} downloads</div>
+                            <div class="price ${pClass}">${pDisplay}</div>
                             <div style="display:flex;gap:.4rem;align-items:center;">
                                 <div class="action-links">${links}</div>
                                 <span class="tracking-badge"><span class="live-dot"></span> Live</span>
@@ -211,7 +832,7 @@
                 });
             }
 
-            function hasDataChanged(newData) {
+            function changed(newData) {
                 const hash = JSON.stringify(newData.map(e => ({
                     title: e.title,
                     status: e.updateStatus,
@@ -220,8 +841,8 @@
                     keysystem: e.keysystem,
                     platform: e.platform
                 })));
-                if (hash === lastDataHash) return false;
-                lastDataHash = hash;
+                if (hash === lastHash) return false;
+                lastHash = hash;
                 return true;
             }
 
@@ -245,8 +866,8 @@
 
                     if (!data) {
                         try {
-                            const proxyUrl = 'https://api.allorigins.win/raw?url=';
-                            const res = await fetch(proxyUrl + encodeURIComponent('https://weao.xyz/api/status/exploits'));
+                            const proxy = 'https://api.allorigins.win/raw?url=';
+                            const res = await fetch(proxy + encodeURIComponent('https://weao.xyz/api/status/exploits'));
                             if (res.ok) {
                                 const json = await res.json();
                                 if (Array.isArray(json) && json.length > 0) data = json;
@@ -256,8 +877,8 @@
 
                     if (!data) {
                         try {
-                            const proxyUrl = 'https://corsproxy.io/?';
-                            const res = await fetch(proxyUrl + encodeURIComponent('https://weao.xyz/api/status/exploits'));
+                            const proxy = 'https://corsproxy.io/?';
+                            const res = await fetch(proxy + encodeURIComponent('https://weao.xyz/api/status/exploits'));
                             if (res.ok) {
                                 const json = await res.json();
                                 if (Array.isArray(json) && json.length > 0) data = json;
@@ -279,11 +900,11 @@
                                 return;
                             }
                         }
-                        throw new Error('No data available');
+                        throw new Error('No data');
                     }
 
                     const filtered = data
-                        .filter(e => KEEP_EXECUTORS.includes(e.title) && e.platform !== 'iOS')
+                        .filter(e => KEEP.includes(e.title) && e.platform !== 'iOS')
                         .map(e => ({
                             title: e.title,
                             version: e.version || '—',
@@ -296,9 +917,9 @@
                             discordlink: e.discordlink || null
                         }));
 
-                    if (filtered.length === 0) throw new Error('No matching executors');
+                    if (filtered.length === 0) throw new Error('No executors');
 
-                    if (hasDataChanged(filtered)) {
+                    if (changed(filtered)) {
                         allExecutors = filtered;
                         render(allExecutors, currentFilter, searchBox.value);
                         statusDot.className = 'dot';
@@ -308,6 +929,8 @@
                             data: allExecutors,
                             timestamp: Date.now()
                         }));
+                        grid.classList.add('flash');
+                        setTimeout(() => grid.classList.remove('flash'), 500);
                     } else {
                         fetchStatus.textContent = `✓ ${allExecutors.length} executors`;
                     }
@@ -357,8 +980,8 @@
 
             fetchData();
 
-            if (pollInterval) clearInterval(pollInterval);
-            pollInterval = setInterval(fetchData, 500);
+            if (pollTimer) clearInterval(pollTimer);
+            pollTimer = setInterval(fetchData, 500);
         })();
     </script>
 </body>
