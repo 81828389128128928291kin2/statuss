@@ -4,585 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>External</title>
-    <!-- FAVICON - Using your Discord image -->
     <link rel="icon" type="image/png" href="https://cdn.discordapp.com/attachments/1532523653017764002/1534050225218654319/image_2.png?ex=6a74b15a&is=6a735fda&hm=d985a3408067b4825ad41656249d685a09426978d263bd67b471510d66476c31&" />
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: #0a0a0f;
-            color: #e4e4e7;
-            min-height: 100vh;
-            padding: 2rem;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 1rem;
-            padding-bottom: 1.5rem;
-            border-bottom: 1px solid #1e1e2e;
-            margin-bottom: 1rem;
-        }
-
-        .header .logo-section {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .header .logo-section .logo-img {
-            height: 45px;
-            width: auto;
-            border-radius: 8px;
-            object-fit: contain;
-        }
-
-        .header .logo-section .logo-text {
-            font-size: 1.5rem;
-            font-weight: 700;
-            background: linear-gradient(135deg, #a855f7, #3b82f6);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .header .status-badge {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            font-size: 0.85rem;
-            color: #71717a;
-        }
-
-        .header .status-badge .dot {
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background: #4ade80;
-            box-shadow: 0 0 12px #4ade8066;
-        }
-
-        .header .status-badge .dot.offline {
-            background: #f87171;
-            box-shadow: 0 0 12px #f8717166;
-        }
-
-        .discord-invite {
-            background: #1a1a2a;
-            border: 1px solid #2a2a3a;
-            border-radius: 10px;
-            padding: 0.6rem 1.2rem;
-            margin-bottom: 1.5rem;
-            display: flex;
-            align-items: center;
-            justify-content: flex-end;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-
-        .discord-invite .join-btn {
-            background: #5865f2;
-            color: #fff;
-            border: none;
-            padding: 0.4rem 1.2rem;
-            border-radius: 100px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: 0.15s;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.4rem;
-        }
-
-        .discord-invite .join-btn:hover {
-            background: #4752c4;
-            transform: scale(1.02);
-        }
-
-        .support-banner {
-            background: #1a1a2a;
-            border: 1px solid #2a2a3a;
-            border-radius: 10px;
-            padding: 0.75rem 1.5rem;
-            margin-bottom: 1.5rem;
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            font-size: 0.9rem;
-            color: #a1a1aa;
-        }
-
-        .support-banner strong {
-            color: #f4f4f5;
-        }
-
-        .support-banner .highlight {
-            color: #a855f7;
-            font-weight: 600;
-        }
-
-        .controls {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.75rem;
-            align-items: center;
-            margin-bottom: 2rem;
-        }
-
-        .controls .search-box {
-            flex: 1;
-            min-width: 200px;
-            background: #12121e;
-            border: 1px solid #1a1a2a;
-            border-radius: 8px;
-            padding: 0.6rem 1rem;
-            color: #e4e4e7;
-            font-size: 0.9rem;
-            outline: none;
-            transition: 0.15s;
-        }
-
-        .controls .search-box:focus {
-            border-color: #a855f7;
-            box-shadow: 0 0 0 3px rgba(168, 85, 247, 0.1);
-        }
-
-        .controls .search-box::placeholder {
-            color: #4a4a5a;
-        }
-
-        .controls .filter-group {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.3rem;
-        }
-
-        .controls .filter-group button {
-            background: #12121e;
-            border: 1px solid #1a1a2a;
-            color: #a1a1aa;
-            padding: 0.35rem 1rem;
-            border-radius: 100px;
-            font-size: 0.78rem;
-            font-weight: 500;
-            cursor: pointer;
-            transition: 0.15s;
-        }
-
-        .controls .filter-group button:hover {
-            border-color: #3a3a5a;
-            color: #f4f4f5;
-        }
-
-        .controls .filter-group button.active {
-            background: #2a2a4a;
-            border-color: #a855f7;
-            color: #f4f4f5;
-        }
-
-        .controls .refresh-btn {
-            background: #12121e;
-            border: 1px solid #1a1a2a;
-            color: #a1a1aa;
-            padding: 0.35rem 1.25rem;
-            border-radius: 100px;
-            font-size: 0.78rem;
-            cursor: pointer;
-            transition: 0.15s;
-            white-space: nowrap;
-        }
-
-        .controls .refresh-btn:hover {
-            border-color: #4a4a6a;
-            color: #f4f4f5;
-        }
-
-        .controls .status-fetch {
-            font-size: 0.7rem;
-            color: #4a4a5a;
-        }
-
-        .executor-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .executor-card {
-            background: #12121e;
-            border-radius: 16px;
-            padding: 1.5rem;
-            border: 1px solid #1a1a2a;
-            transition: all 0.2s ease;
-            display: flex;
-            flex-direction: column;
-            gap: 0.75rem;
-        }
-
-        .executor-card:hover {
-            border-color: #2a2a4a;
-            transform: translateY(-4px);
-            box-shadow: 0 8px 30px -10px rgba(0, 0, 0, 0.6);
-        }
-
-        .executor-card .card-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-
-        .executor-card .card-header .logo-section {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-        }
-
-        .executor-card .card-header .logo {
-            width: 40px;
-            height: 40px;
-            border-radius: 8px;
-            background: #1a1a2a;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.2rem;
-            color: #71717a;
-            border: 1px solid #2a2a3a;
-            overflow: hidden;
-            flex-shrink: 0;
-        }
-
-        .executor-card .card-header .logo img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .executor-card .card-header .name-section {
-            display: flex;
-            flex-direction: column;
-            gap: 0.15rem;
-        }
-
-        .executor-card .card-header .name {
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: #f4f4f5;
-        }
-
-        .executor-card .card-header .version {
-            font-size: 0.75rem;
-            color: #71717a;
-        }
-
-        .executor-card .card-header .status-badge {
-            font-size: 0.65rem;
-            font-weight: 600;
-            padding: 0.2rem 0.7rem;
-            border-radius: 100px;
-            text-transform: uppercase;
-            letter-spacing: 0.03em;
-            white-space: nowrap;
-            margin-left: auto;
-            align-self: center;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.3rem;
-        }
-
-        .status-badge.up {
-            background: #064e3b;
-            color: #4ade80;
-        }
-
-        .status-badge.down {
-            background: #4c1d1d;
-            color: #f87171;
-        }
-
-        .status-badge .check-icon {
-            width: 14px;
-            height: 14px;
-            display: inline-block;
-            background: currentColor;
-            mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E") no-repeat center;
-            mask-size: contain;
-            -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E") no-repeat center;
-            -webkit-mask-size: contain;
-        }
-
-        .status-badge .x-icon {
-            width: 14px;
-            height: 14px;
-            display: inline-block;
-            background: currentColor;
-            mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cline x1='18' y1='6' x2='6' y2='18'%3E%3C/line%3E%3Cline x1='6' y1='6' x2='18' y2='18'%3E%3C/line%3E%3C/svg%3E") no-repeat center;
-            mask-size: contain;
-            -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cline x1='18' y1='6' x2='6' y2='18'%3E%3C/line%3E%3Cline x1='6' y1='6' x2='18' y2='18'%3E%3C/line%3E%3C/svg%3E") no-repeat center;
-            -webkit-mask-size: contain;
-        }
-
-        .executor-card .developer {
-            font-size: 0.8rem;
-            color: #71717a;
-        }
-
-        .executor-card .developer strong {
-            color: #a1a1aa;
-            font-weight: 500;
-        }
-
-        .executor-card .description {
-            font-size: 0.85rem;
-            color: #a1a1aa;
-            line-height: 1.5;
-            margin: 0.25rem 0;
-            flex-grow: 1;
-        }
-
-        .executor-card .card-footer {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            padding-top: 0.75rem;
-            border-top: 1px solid #1a1a2a;
-            margin-top: auto;
-        }
-
-        .executor-card .card-footer .platform {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-size: 0.75rem;
-            color: #71717a;
-        }
-
-        .executor-card .card-footer .platform .platform-icon {
-            width: 16px;
-            height: 16px;
-            display: inline-block;
-            vertical-align: middle;
-            filter: brightness(0) invert(1);
-        }
-
-        .executor-card .card-footer .downloads {
-            font-size: 0.75rem;
-            color: #71717a;
-        }
-
-        .executor-card .card-footer .price {
-            font-size: 0.9rem;
-            font-weight: 600;
-            color: #a855f7;
-        }
-
-        .executor-card .card-footer .price.free {
-            color: #4ade80;
-        }
-
-        .executor-card .card-footer .price.keysystem {
-            color: #fbbf24;
-        }
-
-        .tracking-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.3rem;
-            font-size: 0.6rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.04em;
-            color: #4a4a5a;
-            background: #1a1a2a;
-            padding: 0.15rem 0.6rem;
-            border-radius: 100px;
-            border: 1px solid #2a2a3a;
-        }
-
-        .tracking-badge .live-dot {
-            width: 6px;
-            height: 6px;
-            border-radius: 50%;
-            background: #4ade80;
-            animation: pulse 1.5s infinite;
-        }
-
-        @keyframes pulse {
-            0% { opacity: 1; }
-            50% { opacity: 0.3; }
-            100% { opacity: 1; }
-        }
-
-        .loading-state {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 0.75rem;
-            padding: 4rem 0;
-            color: #71717a;
-            grid-column: 1 / -1;
-        }
-
-        .spinner {
-            width: 28px;
-            height: 28px;
-            border: 3px solid #1a1a2a;
-            border-top-color: #a855f7;
-            border-radius: 50%;
-            animation: spin 0.8s linear infinite;
-        }
-
-        @keyframes spin {
-            to {
-                transform: rotate(360deg);
-            }
-        }
-
-        .action-links {
-            display: flex;
-            gap: 0.3rem;
-        }
-
-        .action-links a {
-            color: #8b8bff;
-            text-decoration: none;
-            font-size: 0.7rem;
-            padding: 0.15rem 0.4rem;
-            border-radius: 100px;
-            background: transparent;
-            border: 1px solid #2a2a3a;
-            transition: 0.15s;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.2rem;
-        }
-
-        .action-links a:hover {
-            border-color: #4a4a6a;
-            color: #f4f4f5;
-        }
-
-        .action-links a.discord {
-            border-color: #5865f2;
-            color: #8b8bff;
-        }
-
-        .action-links a.discord:hover {
-            background: #5865f2;
-            color: #fff;
-            border-color: #5865f2;
-        }
-
-        .action-links a .discord-img {
-            width: 16px;
-            height: 16px;
-            display: inline-block;
-            vertical-align: middle;
-            filter: brightness(0) invert(1);
-        }
-
-        .error-box {
-            grid-column: 1 / -1;
-            text-align: center;
-            padding: 3rem;
-            color: #f87171;
-            background: #1a0a0a;
-            border-radius: 16px;
-            border: 1px solid #4c1d1d;
-        }
-
-        .error-box .retry-btn {
-            margin-top: 1rem;
-            background: #2a2a4a;
-            border: 1px solid #4a4a6a;
-            color: #e4e4e7;
-            padding: 0.5rem 1.5rem;
-            border-radius: 100px;
-            font-size: 0.85rem;
-            cursor: pointer;
-            transition: 0.15s;
-        }
-
-        .error-box .retry-btn:hover {
-            background: #3a3a5a;
-        }
-
-        @media (max-width: 768px) {
-            body {
-                padding: 1rem;
-            }
-
-            .executor-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .controls {
-                flex-direction: column;
-                align-items: stretch;
-            }
-
-            .filter-group {
-                justify-content: center;
-            }
-
-            .refresh-btn {
-                align-self: center;
-            }
-
-            .support-banner {
-                font-size: 0.8rem;
-                padding: 0.6rem 1rem;
-                flex-wrap: wrap;
-            }
-
-            .discord-invite {
-                justify-content: center;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .header .logo-section .logo-text {
-                font-size: 1.2rem;
-            }
-
-            .header .logo-section .logo-img {
-                height: 30px;
-            }
-
-            .executor-card .card-header {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            .executor-card .card-header .status-badge {
-                margin-left: 0;
-                align-self: flex-start;
-            }
-
-            .executor-card .card-footer {
-                flex-direction: column;
-                align-items: stretch;
-                gap: 0.5rem;
-            }
-        }
+        *{margin:0;padding:0;box-sizing:border-box}body{font-family:'Inter',sans-serif;background:#0a0a0f;color:#e4e4e7;min-height:100vh;padding:2rem}.container{max-width:1200px;margin:0 auto}.header{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;padding-bottom:1.5rem;border-bottom:1px solid #1e1e2e;margin-bottom:1rem}.header .logo-section{display:flex;align-items:center;gap:1rem}.header .logo-section .logo-img{height:45px;width:auto;border-radius:8px;object-fit:contain}.header .logo-section .logo-text{font-size:1.5rem;font-weight:700;background:linear-gradient(135deg,#a855f7,#3b82f6);-webkit-background-clip:text;-webkit-text-fill-color:transparent}.header .status-badge{display:flex;align-items:center;gap:.75rem;font-size:.85rem;color:#71717a}.header .status-badge .dot{width:10px;height:10px;border-radius:50%;background:#4ade80;box-shadow:0 0 12px #4ade8066}.header .status-badge .dot.offline{background:#f87171;box-shadow:0 0 12px #f8717166}.discord-invite{background:#1a1a2a;border:1px solid #2a2a3a;border-radius:10px;padding:.6rem 1.2rem;margin-bottom:1.5rem;display:flex;align-items:center;justify-content:flex-end;flex-wrap:wrap;gap:1rem}.discord-invite .join-btn{background:#5865f2;color:#fff;border:none;padding:.4rem 1.2rem;border-radius:100px;font-size:.8rem;font-weight:600;cursor:pointer;transition:.15s;text-decoration:none;display:inline-flex;align-items:center;gap:.4rem}.discord-invite .join-btn:hover{background:#4752c4;transform:scale(1.02)}.support-banner{background:#1a1a2a;border:1px solid #2a2a3a;border-radius:10px;padding:.75rem 1.5rem;margin-bottom:1.5rem;display:flex;align-items:center;gap:.75rem;font-size:.9rem;color:#a1a1aa}.support-banner strong{color:#f4f4f5}.support-banner .highlight{color:#a855f7;font-weight:600}.controls{display:flex;flex-wrap:wrap;gap:.75rem;align-items:center;margin-bottom:2rem}.controls .search-box{flex:1;min-width:200px;background:#12121e;border:1px solid #1a1a2a;border-radius:8px;padding:.6rem 1rem;color:#e4e4e7;font-size:.9rem;outline:none;transition:.15s}.controls .search-box:focus{border-color:#a855f7;box-shadow:0 0 0 3px rgba(168,85,247,.1)}.controls .search-box::placeholder{color:#4a4a5a}.controls .filter-group{display:flex;flex-wrap:wrap;gap:.3rem}.controls .filter-group button{background:#12121e;border:1px solid #1a1a2a;color:#a1a1aa;padding:.35rem 1rem;border-radius:100px;font-size:.78rem;font-weight:500;cursor:pointer;transition:.15s}.controls .filter-group button:hover{border-color:#3a3a5a;color:#f4f4f5}.controls .filter-group button.active{background:#2a2a4a;border-color:#a855f7;color:#f4f4f5}.controls .refresh-btn{background:#12121e;border:1px solid #1a1a2a;color:#a1a1aa;padding:.35rem 1.25rem;border-radius:100px;font-size:.78rem;cursor:pointer;transition:.15s;white-space:nowrap}.controls .refresh-btn:hover{border-color:#4a4a6a;color:#f4f4f5}.controls .status-fetch{font-size:.7rem;color:#4a4a5a}.executor-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:1.5rem}.executor-card{background:#12121e;border-radius:16px;padding:1.5rem;border:1px solid #1a1a2a;transition:all .2s ease;display:flex;flex-direction:column;gap:.75rem}.executor-card:hover{border-color:#2a2a4a;transform:translateY(-4px);box-shadow:0 8px 30px -10px rgba(0,0,0,.6)}.executor-card .card-header{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:.5rem}.executor-card .card-header .logo-section{display:flex;align-items:center;gap:.75rem}.executor-card .card-header .logo{width:40px;height:40px;border-radius:8px;background:#1a1a2a;display:flex;align-items:center;justify-content:center;font-size:1.2rem;color:#71717a;border:1px solid #2a2a3a;overflow:hidden;flex-shrink:0}.executor-card .card-header .logo img{width:100%;height:100%;object-fit:cover}.executor-card .card-header .name-section{display:flex;flex-direction:column;gap:.15rem}.executor-card .card-header .name{font-size:1.3rem;font-weight:700;color:#f4f4f5}.executor-card .card-header .version{font-size:.75rem;color:#71717a}.executor-card .card-header .status-badge{font-size:.65rem;font-weight:600;padding:.2rem .7rem;border-radius:100px;text-transform:uppercase;letter-spacing:.03em;white-space:nowrap;margin-left:auto;align-self:center;display:inline-flex;align-items:center;gap:.3rem}.status-badge.up{background:#064e3b;color:#4ade80}.status-badge.down{background:#4c1d1d;color:#f87171}.status-badge .check-icon{width:14px;height:14px;display:inline-block;background:currentColor;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E") no-repeat center;mask-size:contain;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E") no-repeat center;-webkit-mask-size:contain}.status-badge .x-icon{width:14px;height:14px;display:inline-block;background:currentColor;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cline x1='18' y1='6' x2='6' y2='18'%3E%3C/line%3E%3Cline x1='6' y1='6' x2='18' y2='18'%3E%3C/line%3E%3C/svg%3E") no-repeat center;mask-size:contain;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cline x1='18' y1='6' x2='6' y2='18'%3E%3C/line%3E%3Cline x1='6' y1='6' x2='18' y2='18'%3E%3C/line%3E%3C/svg%3E") no-repeat center;-webkit-mask-size:contain}.executor-card .developer{font-size:.8rem;color:#71717a}.executor-card .developer strong{color:#a1a1aa;font-weight:500}.executor-card .description{font-size:.85rem;color:#a1a1aa;line-height:1.5;margin:.25rem 0;flex-grow:1}.executor-card .card-footer{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.5rem;padding-top:.75rem;border-top:1px solid #1a1a2a;margin-top:auto}.executor-card .card-footer .platform{display:flex;align-items:center;gap:.5rem;font-size:.75rem;color:#71717a}.executor-card .card-footer .platform .platform-icon{width:16px;height:16px;display:inline-block;vertical-align:middle;filter:brightness(0) invert(1)}.executor-card .card-footer .downloads{font-size:.75rem;color:#71717a}.executor-card .card-footer .price{font-size:.9rem;font-weight:600;padding:.15rem .6rem;border-radius:100px;display:inline-block}.executor-card .card-footer .price.free{color:#7c3aed;background:rgba(124,58,237,.15)}.executor-card .card-footer .price.keysystem{color:#7c3aed;background:rgba(124,58,237,.15)}.executor-card .card-footer .price.paid{color:#a855f7;background:rgba(168,85,247,.15)}.tracking-badge{display:inline-flex;align-items:center;gap:.3rem;font-size:.6rem;font-weight:600;text-transform:uppercase;letter-spacing:.04em;color:#4a4a5a;background:#1a1a2a;padding:.15rem .6rem;border-radius:100px;border:1px solid #2a2a3a}.tracking-badge .live-dot{width:6px;height:6px;border-radius:50%;background:#4ade80;animation:pulse 1.5s infinite}.action-links{display:flex;gap:.3rem}.action-links a{color:#8b8bff;text-decoration:none;font-size:.7rem;padding:.15rem .4rem;border-radius:100px;background:0 0;border:1px solid #2a2a3a;transition:.15s;display:inline-flex;align-items:center;gap:.2rem}.action-links a:hover{border-color:#4a4a6a;color:#f4f4f5}.action-links a.discord{border-color:#5865f2;color:#8b8bff}.action-links a.discord:hover{background:#5865f2;color:#fff;border-color:#5865f2}.action-links a .discord-img{width:16px;height:16px;display:inline-block;vertical-align:middle;filter:brightness(0) invert(1)}.loading-state{display:flex;justify-content:center;align-items:center;gap:.75rem;padding:4rem 0;color:#71717a;grid-column:1/-1}.spinner{width:28px;height:28px;border:3px solid #1a1a2a;border-top-color:#a855f7;border-radius:50%;animation:spin .8s linear infinite}@keyframes spin{to{transform:rotate(360deg)}}@keyframes pulse{0%{opacity:1}50%{opacity:.3}100%{opacity:1}}@media(max-width:768px){body{padding:1rem}.executor-grid{grid-template-columns:1fr}.controls{flex-direction:column;align-items:stretch}.filter-group{justify-content:center}.refresh-btn{align-self:center}.support-banner{font-size:.8rem;padding:.6rem 1rem;flex-wrap:wrap}.discord-invite{justify-content:center}}@media(max-width:480px){.header .logo-section .logo-text{font-size:1.2rem}.header .logo-section .logo-img{height:30px}.executor-card .card-header{flex-direction:column;align-items:flex-start}.executor-card .card-header .status-badge{margin-left:0;align-self:flex-start}.executor-card .card-footer{flex-direction:column;align-items:stretch;gap:.5rem}}
     </style>
 </head>
 <body>
@@ -606,9 +30,7 @@
         </div>
 
         <div class="support-banner">
-            <span>
-                These executors are only supported for the <strong>Bronx 3</strong> script for <span class="highlight">External</span>.
-            </span>
+            <span>These executors are only supported for the <strong>Bronx 3</strong> script for <span class="highlight">External</span>.</span>
         </div>
 
         <div class="controls">
@@ -624,17 +46,12 @@
         </div>
 
         <div class="executor-grid" id="executorGrid">
-            <div class="loading-state">
-                <div class="spinner"></div>
-                Loading executors...
-            </div>
+            <div class="loading-state"><div class="spinner"></div>Loading executors...</div>
         </div>
     </div>
 
     <script>
         (function() {
-            'use strict';
-
             const grid = document.getElementById('executorGrid');
             const searchBox = document.getElementById('searchBox');
             const filterBtns = document.querySelectorAll('#filterGroup button');
@@ -646,10 +63,10 @@
             let allExecutors = [];
             let currentFilter = 'all';
             let isFetching = false;
+            let lastDataHash = '';
+            let pollInterval = null;
 
-            const KEEP_EXECUTORS = [
-                "Real", "Madium", "Velocity", "Potassium", "Volt", "Wave", "Delta"
-            ];
+            const KEEP_EXECUTORS = ["Potassium", "Volt", "Wave", "Real", "Madium", "Velocity", "Delta"];
 
             const LOGO_MAP = {
                 "Volt": "https://cdn.weao.gg/slug/volt/logo.png",
@@ -705,214 +122,15 @@
                 "Delta": "https://rcheatz.com/product?id=delta"
             };
 
-            const FALLBACK_DATA = [{
-                title: "Volt",
-                version: "1.3.5.1",
-                free: false,
-                updateStatus: true,
-                platform: "Windows",
-                cost: "$5.99 Weekly",
-                description: "Volt is the most powerful script executor for Roblox currently on the market.",
-                developer: "R Cell",
-                downloads: "42.1K",
-                websitelink: "https://voltbz.net/",
-                discordlink: "https://discord.com/invite/voltbz",
-                keysystem: false,
-                logo: "https://cdn.weao.gg/slug/volt/logo.png"
-            }, {
-                title: "Potassium",
-                version: "2.3.5",
-                free: false,
-                updateStatus: true,
-                platform: "Windows",
-                cost: "$22.99 Lifetime",
-                description: "A powerful script executor aimed to give you the best scripting experience.",
-                developer: "R permanently",
-                downloads: "32.0K",
-                websitelink: "https://www.potassium.pro/",
-                discordlink: "https://discord.com/invite/potassium",
-                keysystem: false,
-                logo: "https://cdn.weao.gg/slug/potassium/logo.png"
-            }, {
-                title: "Wave",
-                version: "NEW-1.4.4",
-                free: false,
-                updateStatus: true,
-                platform: "Windows",
-                cost: "$5.99 Weekly",
-                description: "Wave is a robust and efficient Roblox exploit, offering a seamless scripting experience...",
-                developer: "Team Wave",
-                downloads: "28.6K",
-                websitelink: "https://getwave.gg",
-                discordlink: "https://discord.gg/rARhPpN7fY",
-                keysystem: false,
-                logo: "https://cdn.weao.gg/slug/wave/logo.png"
-            }, {
-                title: "Real",
-                version: "1.8.4",
-                free: true,
-                updateStatus: true,
-                platform: "Windows",
-                cost: "Free (Key)",
-                description: "Real works across the games you actually play. New releases. Old favorites. Popular or obscure...",
-                developer: "marko, Bytecode, 0x108",
-                downloads: "2.3K",
-                websitelink: "https://realest.gg",
-                discordlink: "https://discord.gg/projectreal",
-                keysystem: true,
-                logo: "https://cdn.weao.gg/slug/real/logo.png"
-            }, {
-                title: "Madium",
-                version: "2.0.0",
-                free: true,
-                updateStatus: true,
-                platform: "Windows",
-                cost: "Free",
-                description: "A lightweight and fast executor for everyday use.",
-                developer: "Olemad",
-                downloads: "1.8K",
-                websitelink: "https://getmadium.net/",
-                discordlink: "https://discord.com/invite/olemad",
-                keysystem: true,
-                logo: "https://cdn.weao.gg/slug/madium/logo.png"
-            }, {
-                title: "Velocity",
-                version: "1.3.6",
-                free: true,
-                updateStatus: true,
-                platform: "Windows",
-                cost: "Free (Key)",
-                description: "Velocity focuses on stability and speed for advanced scripters.",
-                developer: "CG",
-                downloads: "1.2K",
-                websitelink: "https://realvelocity.xyz/",
-                discordlink: "https://discord.com/invite/velocityide",
-                keysystem: true,
-                logo: "https://cdn.weao.gg/slug/velocity/logo.png"
-            }, {
-                title: "Delta",
-                version: "2.729.840",
-                free: true,
-                updateStatus: true,
-                platform: "Android",
-                cost: "Free (Key)",
-                description: "The most popular executor for Android users.",
-                developer: "lxnny, mlemix",
-                downloads: "15.4K",
-                websitelink: "https://deltaexploits.gg/",
-                discordlink: "https://discord.gg/deltax",
-                keysystem: true,
-                logo: "https://cdn.weao.gg/slug/delta/logo.png"
-            }];
-
-            function isUp(exec) {
-                return exec.updateStatus === true;
-            }
-
-            function isFree(exec) {
-                return exec.free === true;
-            }
-
-            function isPaid(exec) {
-                return exec.free === false;
-            }
-
-            function hasKeySystem(exec) {
-                return exec.keysystem === true;
-            }
-
-            function getLogoUrl(title) {
-                return LOGO_MAP[title] || null;
-            }
-
-            function getPurchaseLink(title) {
-                return PURCHASE_LINKS[title] || null;
-            }
-
-            function renderCard(exec) {
-                const card = document.createElement('div');
-                card.className = 'executor-card';
-
-                const isUpStatus = isUp(exec);
-                const statusClass = isUpStatus ? 'up' : 'down';
-                const statusIcon = isUpStatus ?
-                    `<span class="check-icon"></span>` :
-                    `<span class="x-icon"></span>`;
-                const statusTextLabel = isUpStatus ? 'Up' : 'Down';
-                const priceClass = isFree(exec) ? 'free' : (hasKeySystem(exec) ? 'keysystem' : '');
-
-                const logoUrl = exec.logo || getLogoUrl(exec.title);
-                const isWindows = exec.platform && exec.platform.toLowerCase() === 'windows';
-                const isAndroid = exec.platform && exec.platform.toLowerCase() === 'android';
-
-                let platformIcon = '🖥️';
-                if (isWindows) platformIcon = `<img src="${WINDOWS_LOGO}" alt="Windows" class="platform-icon" />`;
-                else if (isAndroid) platformIcon = `<img src="${ANDROID_LOGO}" alt="Android" class="platform-icon" />`;
-
-                let priceDisplay = exec.cost || '—';
-                if (hasKeySystem(exec) && !isFree(exec)) {
-                    priceDisplay = '🔑 ' + priceDisplay;
-                } else if (hasKeySystem(exec) && isFree(exec)) {
-                    priceDisplay = '🔑 Free';
-                }
-
-                let linksHtml = '';
-                if (exec.websitelink) linksHtml += `<a href="${exec.websitelink}" target="_blank">🌐</a>`;
-                if (exec.discordlink) linksHtml += `<a href="${exec.discordlink}" target="_blank" class="discord"><img src="${DISCORD_LOGO}" alt="Discord" class="discord-img" /></a>`;
-
-                const purchaseLink = getPurchaseLink(exec.title);
-                if (purchaseLink && !isFree(exec)) {
-                    linksHtml += `<a href="${purchaseLink}" target="_blank">🛒</a>`;
-                }
-
-                card.innerHTML = `
-                    <div class="card-header">
-                        <div class="logo-section">
-                            <div class="logo">
-                                ${logoUrl ? `<img src="${logoUrl}" alt="${exec.title} logo" onerror="this.style.display='none';this.parentElement.textContent=''" />` : ''}
-                            </div>
-                            <div class="name-section">
-                                <span class="name">${exec.title}</span>
-                                <span class="version">${exec.version || ''}</span>
-                            </div>
-                        </div>
-                        <span class="status-badge ${statusClass}">${statusIcon} ${statusTextLabel}</span>
-                    </div>
-                    <div class="developer">
-                        <strong>Developer:</strong> ${exec.developer || 'Unknown'}
-                    </div>
-                    <div class="description">
-                        ${exec.description || 'No description available.'}
-                    </div>
-                    <div class="card-footer">
-                        <div class="platform">
-                            ${platformIcon}
-                            ${exec.platform || 'Windows'}
-                        </div>
-                        <div class="downloads">
-                            ⬇ ${exec.downloads || '0'} downloads
-                        </div>
-                        <div class="price ${priceClass}">
-                            ${priceDisplay}
-                        </div>
-                        <div style="display:flex; gap:0.4rem; align-items:center;">
-                            <div class="action-links">${linksHtml}</div>
-                            <span class="tracking-badge">
-                                <span class="live-dot"></span> Live
-                            </span>
-                        </div>
-                    </div>
-                `;
-
-                return card;
-            }
-
             function render(execs, filter, search) {
                 let filtered = [...execs];
 
-                if (filter === 'free') filtered = filtered.filter(e => isFree(e));
-                else if (filter === 'paid') filtered = filtered.filter(e => isPaid(e));
-                else if (filter === 'up') filtered = filtered.filter(e => isUp(e));
+                if (filter === 'free') filtered = filtered.filter(e => e.free === true);
+                else if (filter === 'paid') filtered = filtered.filter(e => e.free === false);
+                else if (filter === 'up') filtered = filtered.filter(e => e.updateStatus === true);
+
+                const order = ["Potassium", "Volt", "Wave", "Real", "Madium", "Velocity", "Delta"];
+                filtered = filtered.sort((a, b) => order.indexOf(a.title) - order.indexOf(b.title));
 
                 if (search.trim()) {
                     const term = search.toLowerCase().trim();
@@ -926,108 +144,221 @@
 
                 grid.innerHTML = '';
                 if (filtered.length === 0) {
-                    grid.innerHTML = `
-                        <div style="grid-column:1/-1;text-align:center;color:#71717a;padding:3rem;">
-                            No executors match your criteria.
-                        </div>
-                    `;
+                    grid.innerHTML = `<div style="grid-column:1/-1;text-align:center;color:#71717a;padding:3rem;">No executors match your criteria.</div>`;
                     return;
                 }
 
                 filtered.forEach(e => {
-                    grid.appendChild(renderCard(e));
+                    const card = document.createElement('div');
+                    card.className = 'executor-card';
+
+                    const isUp = e.updateStatus === true;
+                    const statusClass = isUp ? 'up' : 'down';
+                    const statusIcon = isUp ? '<span class="check-icon"></span>' : '<span class="x-icon"></span>';
+                    const statusLabel = isUp ? 'Up' : 'Down';
+
+                    let priceClass = '';
+                    let priceDisplay = e.cost || '—';
+
+                    if (e.free === true && e.keysystem === true) {
+                        priceClass = 'free';
+                        priceDisplay = 'Free (Key)';
+                    } else if (e.free === true) {
+                        priceClass = 'free';
+                        priceDisplay = 'Free';
+                    } else if (e.keysystem === true) {
+                        priceClass = 'keysystem';
+                        priceDisplay = 'Key ' + e.cost;
+                    } else {
+                        priceClass = 'paid';
+                    }
+
+                    const logoUrl = LOGO_MAP[e.title] || null;
+                    const isWindows = e.platform && e.platform.toLowerCase() === 'windows';
+                    const isAndroid = e.platform && e.platform.toLowerCase() === 'android';
+
+                    let platformIcon = '🖥️';
+                    if (isWindows) platformIcon = `<img src="${WINDOWS_LOGO}" alt="Windows" class="platform-icon" />`;
+                    else if (isAndroid) platformIcon = `<img src="${ANDROID_LOGO}" alt="Android" class="platform-icon" />`;
+
+                    let links = '';
+                    if (e.websitelink) links += `<a href="${e.websitelink}" target="_blank">🌐</a>`;
+                    if (e.discordlink) links += `<a href="${e.discordlink}" target="_blank" class="discord"><img src="${DISCORD_LOGO}" alt="Discord" class="discord-img" /></a>`;
+                    const buyLink = PURCHASE_LINKS[e.title];
+                    if (buyLink && e.free === false) links += `<a href="${buyLink}" target="_blank">🛒</a>`;
+
+                    card.innerHTML = `
+                        <div class="card-header">
+                            <div class="logo-section">
+                                <div class="logo">${logoUrl ? `<img src="${logoUrl}" alt="${e.title} logo" onerror="this.style.display='none';this.parentElement.textContent=''" />` : ''}</div>
+                                <div class="name-section"><span class="name">${e.title}</span><span class="version">${e.version || ''}</span></div>
+                            </div>
+                            <span class="status-badge ${statusClass}">${statusIcon} ${statusLabel}</span>
+                        </div>
+                        <div class="developer"><strong>Developer:</strong> ${STATIC_DEVELOPERS[e.title] || 'Unknown'}</div>
+                        <div class="description">${STATIC_DESCRIPTIONS[e.title] || 'No description available.'}</div>
+                        <div class="card-footer">
+                            <div class="platform">${platformIcon} ${e.platform || 'Windows'}</div>
+                            <div class="downloads">⬇ ${STATIC_DOWNLOADS[e.title] || '0'} downloads</div>
+                            <div class="price ${priceClass}">${priceDisplay}</div>
+                            <div style="display:flex;gap:.4rem;align-items:center;">
+                                <div class="action-links">${links}</div>
+                                <span class="tracking-badge"><span class="live-dot"></span> Live</span>
+                            </div>
+                        </div>
+                    `;
+                    grid.appendChild(card);
                 });
             }
 
-            async function fetchExploits() {
+            function hasDataChanged(newData) {
+                const hash = JSON.stringify(newData.map(e => ({
+                    title: e.title,
+                    status: e.updateStatus,
+                    version: e.version,
+                    free: e.free,
+                    keysystem: e.keysystem,
+                    platform: e.platform
+                })));
+                if (hash === lastDataHash) return false;
+                lastDataHash = hash;
+                return true;
+            }
+
+            async function fetchData() {
                 if (isFetching) return;
                 isFetching = true;
 
                 try {
-                    const proxyUrl = 'https://api.allorigins.win/raw?url=';
-                    const apiUrl = 'https://weao.xyz/api/status/exploits';
+                    let data = null;
 
-                    const response = await fetch(proxyUrl + encodeURIComponent(apiUrl), {
-                        signal: AbortSignal.timeout(10000)
-                    });
-
-                    if (!response.ok) throw new Error(`HTTP ${response.status}`);
-
-                    const data = await response.json();
-
-                    if (!Array.isArray(data) || data.length === 0) {
-                        throw new Error('No data received');
-                    }
-
-                    const filteredData = data
-                        .filter(e => KEEP_EXECUTORS.includes(e.title) && e.platform !== 'iOS')
-                        .map(e => {
-                            return {
-                                title: e.title,
-                                version: e.version || '—',
-                                free: e.free === true,
-                                updateStatus: e.updateStatus === true,
-                                platform: e.platform || 'Windows',
-                                cost: e.cost || '—',
-                                description: STATIC_DESCRIPTIONS[e.title] || 'No description available.',
-                                developer: STATIC_DEVELOPERS[e.title] || 'Unknown',
-                                downloads: STATIC_DOWNLOADS[e.title] || '0',
-                                websitelink: e.websitelink || null,
-                                discordlink: e.discordlink || null,
-                                logo: LOGO_MAP[e.title] || null,
-                                keysystem: e.keysystem === true
-                            };
+                    try {
+                        const res = await fetch('https://weao.xyz/api/status/exploits', {
+                            mode: 'cors',
+                            headers: { 'Accept': 'application/json' }
                         });
+                        if (res.ok) {
+                            const json = await res.json();
+                            if (Array.isArray(json) && json.length > 0) data = json;
+                        }
+                    } catch (e) {}
 
-                    if (filteredData.length > 0) {
-                        allExecutors = filteredData;
-                    } else {
-                        allExecutors = FALLBACK_DATA;
+                    if (!data) {
+                        try {
+                            const proxyUrl = 'https://api.allorigins.win/raw?url=';
+                            const res = await fetch(proxyUrl + encodeURIComponent('https://weao.xyz/api/status/exploits'));
+                            if (res.ok) {
+                                const json = await res.json();
+                                if (Array.isArray(json) && json.length > 0) data = json;
+                            }
+                        } catch (e) {}
                     }
 
-                    render(allExecutors, currentFilter, searchBox.value);
-                    statusDot.className = 'dot';
-                    statusText.textContent = 'Live';
-                    fetchStatus.textContent = `✓ ${allExecutors.length} executors`;
+                    if (!data) {
+                        try {
+                            const proxyUrl = 'https://corsproxy.io/?';
+                            const res = await fetch(proxyUrl + encodeURIComponent('https://weao.xyz/api/status/exploits'));
+                            if (res.ok) {
+                                const json = await res.json();
+                                if (Array.isArray(json) && json.length > 0) data = json;
+                            }
+                        } catch (e) {}
+                    }
+
+                    if (!data) {
+                        const cached = localStorage.getItem('executorCache');
+                        if (cached) {
+                            const cache = JSON.parse(cached);
+                            if (cache.data && cache.data.length > 0) {
+                                allExecutors = cache.data;
+                                render(allExecutors, currentFilter, searchBox.value);
+                                statusDot.className = 'dot';
+                                statusText.textContent = 'Cached';
+                                fetchStatus.textContent = `📦 ${allExecutors.length} cached`;
+                                isFetching = false;
+                                return;
+                            }
+                        }
+                        throw new Error('No data available');
+                    }
+
+                    const filtered = data
+                        .filter(e => KEEP_EXECUTORS.includes(e.title) && e.platform !== 'iOS')
+                        .map(e => ({
+                            title: e.title,
+                            version: e.version || '—',
+                            free: e.free === true,
+                            updateStatus: e.updateStatus === true,
+                            platform: e.platform || 'Windows',
+                            cost: e.cost || '—',
+                            keysystem: e.keysystem === true,
+                            websitelink: e.websitelink || null,
+                            discordlink: e.discordlink || null
+                        }));
+
+                    if (filtered.length === 0) throw new Error('No matching executors');
+
+                    if (hasDataChanged(filtered)) {
+                        allExecutors = filtered;
+                        render(allExecutors, currentFilter, searchBox.value);
+                        statusDot.className = 'dot';
+                        statusText.textContent = 'Live';
+                        fetchStatus.textContent = `✓ ${allExecutors.length} executors`;
+                        localStorage.setItem('executorCache', JSON.stringify({
+                            data: allExecutors,
+                            timestamp: Date.now()
+                        }));
+                    } else {
+                        fetchStatus.textContent = `✓ ${allExecutors.length} executors`;
+                    }
 
                 } catch (error) {
-                    console.warn('API failed, using fallback:', error.message);
-                    allExecutors = FALLBACK_DATA;
-                    render(allExecutors, currentFilter, searchBox.value);
-                    statusDot.className = 'dot';
-                    statusText.textContent = 'Live';
-                    fetchStatus.textContent = `✓ ${allExecutors.length} executors`;
+                    statusDot.className = 'dot offline';
+                    statusText.textContent = 'Error';
+                    fetchStatus.textContent = '⚠️ Failed';
 
+                    const cached = localStorage.getItem('executorCache');
+                    if (cached) {
+                        const cache = JSON.parse(cached);
+                        if (cache.data && cache.data.length > 0) {
+                            allExecutors = cache.data;
+                            render(allExecutors, currentFilter, searchBox.value);
+                            statusDot.className = 'dot';
+                            statusText.textContent = 'Cached';
+                            fetchStatus.textContent = `📦 ${allExecutors.length} cached`;
+                            return;
+                        }
+                    }
+
+                    grid.innerHTML = `
+                        <div style="grid-column:1/-1;text-align:center;padding:3rem;color:#f87171;background:#1a0a0a;border-radius:16px;border:1px solid #4c1d1d;">
+                            <strong>⚠️ Failed to load</strong><br>
+                            <span style="color:#71717a;font-size:.85rem;">${error.message}</span><br><br>
+                            <button onclick="document.getElementById('refreshBtn').click()" style="margin-top:1rem;background:#2a2a4a;border:1px solid #4a4a6a;color:#e4e4e7;padding:.5rem 1.5rem;border-radius:100px;font-size:.85rem;cursor:pointer;">⟳ Retry</button>
+                        </div>
+                    `;
                 } finally {
                     isFetching = false;
                 }
             }
 
-            filterBtns.forEach(btn => {
-                btn.addEventListener('click', function() {
-                    filterBtns.forEach(b => b.classList.remove('active'));
-                    this.classList.add('active');
-                    currentFilter = this.dataset.filter;
-                    if (allExecutors.length > 0) {
-                        render(allExecutors, currentFilter, searchBox.value);
-                    }
-                });
-            });
+            filterBtns.forEach(b => b.addEventListener('click', function() {
+                filterBtns.forEach(x => x.classList.remove('active'));
+                this.classList.add('active');
+                currentFilter = this.dataset.filter;
+                if (allExecutors.length > 0) render(allExecutors, currentFilter, searchBox.value);
+            }));
 
             searchBox.addEventListener('input', function() {
-                if (allExecutors.length > 0) {
-                    render(allExecutors, currentFilter, this.value);
-                }
+                if (allExecutors.length > 0) render(allExecutors, currentFilter, this.value);
             });
 
-            refreshBtn.addEventListener('click', function() {
-                fetchExploits();
-            });
+            refreshBtn.addEventListener('click', fetchData);
 
-            setInterval(fetchExploits, 60000);
+            fetchData();
 
-            fetchExploits();
-
+            if (pollInterval) clearInterval(pollInterval);
+            pollInterval = setInterval(fetchData, 500);
         })();
     </script>
 </body>
